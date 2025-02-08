@@ -9,18 +9,15 @@ jobs:
   update_repo:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GH_PAT }}
 
-      - name: Set up Git
+      - name: Add a Daily Commit by 24f2003130@ds.study.iitm.ac.in
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "24f2003130@ds.study.iitm.ac.in"
-
-      - name: Make a dummy commit
-        run: |
           echo "$(date)" >> daily_commit_log.txt
           git add daily_commit_log.txt
           git commit -m "Automated commit - $(date)"
